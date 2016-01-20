@@ -6,7 +6,10 @@ const ROOT_URL = `http://api.openweathermap.org/data/2.5/forecast?appid=${API_KE
 export const FETCH_WEATHER = 'FETCH_WEATHER';
 
 export function fetchWeather(city) {
+
     const url = `${ROOT_URL}&q=${city},us`;
+
+    //returns a promise, however redux-promise will wait for a response before sending to reducer
     const request = axios.get(url);
 
     return {
